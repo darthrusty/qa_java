@@ -24,23 +24,17 @@ public class CatTest {
     }
 
     @Test
-    public void testGetFood() {
-        try {
+    public void testGetFood() throws Exception {
         Cat cat = new Cat(feline);
         cat.getFood();
         Mockito.verify(feline).eatMeat();
-    } catch (Exception e) {
     }
-}
 
     @Test
-    public void testGetFoodEatMeat() {
-        try {
-            Feline feline = new Feline();
-            Cat    cat    = new Cat(feline);
-            assertEquals(animalPredatorFood, cat.getFood());
-        } catch (Exception e) {
-        }
+    public void testGetFoodEatMeat() throws Exception {
+        Feline feline = new Feline();
+        Cat    cat    = new Cat(feline);
+        assertEquals(animalPredatorFood, cat.getFood());
     }
 
 }

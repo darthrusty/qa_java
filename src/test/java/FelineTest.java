@@ -13,12 +13,8 @@ public class FelineTest {
     int    kittensNum   = 7;
 
     @Test
-    public void testEatMeat() {
-        try {
-            Assert.assertEquals(animalPredatorFood, feline.eatMeat());
-        } catch (Exception e) {
-            System.out.printf("Exception");
-        }
+    public void testEatMeat() throws Exception {
+        Assert.assertEquals(animalPredatorFood, feline.eatMeat());
     }
 
     @Test
@@ -28,7 +24,7 @@ public class FelineTest {
 
     @Test
     public void testGetKitten() {
-        Assert.assertEquals(kittenNum, feline.getKittens());;
+        Assert.assertEquals(kittenNum, feline.getKittens());
     }
 
     @Test

@@ -16,39 +16,29 @@ public class LionTest {
     Feline feline;
 
     List<String> animalPredatorFood = List.of("Животные", "Птицы", "Рыба");
-    String exceptionMessage = "Используйте допустимые значения пола животного - самец или самка";
+    String  exceptionMessage = "Используйте допустимые значения пола животного - самец или самка";
     String  sex       = "Самец";
     int     kittenNum = 1;
-    boolean haveMane  = true;
 
     @Test
-    public void testGetFood() {
-        try {
-            Lion lion = new Lion(sex, feline);
-            lion.getFood();
-            Mockito.verify(feline).getFood("Хищник");
-        } catch (Exception e) {
-        }
+    public void testGetFood() throws Exception {
+        Lion lion = new Lion(sex, feline);
+        lion.getFood();
+        Mockito.verify(feline).eatMeat();
     }
 
     @Test
-    public void testGetFoodEatMeat() {
-        try {
-            Feline feline = new Feline();
-            Lion   lion   = new Lion(sex, feline);
-            assertEquals(animalPredatorFood, lion.getFood());
-        } catch (Exception e) {
-        }
+    public void testGetFoodEatMeat() throws Exception {
+        Feline feline = new Feline();
+        Lion   lion   = new Lion(sex, feline);
+        assertEquals(animalPredatorFood, lion.getFood());
     }
 
     @Test
-    public void testGetKittens() {
-        try {
-            Feline feline = new Feline();
-            Lion   lion   = new Lion(sex, feline);
-            Assert.assertEquals(kittenNum, lion.getKittens());;
-        } catch (Exception e) {
-        }
+    public void testGetKittens() throws Exception {
+        Lion lion = new Lion(sex, feline);
+        Mockito.when(feline.getKittens()).thenReturn(kittenNum);
+        Assert.assertEquals(kittenNum, lion.getKittens());
     }
 
     @Test
