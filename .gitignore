@@ -28,5 +28,3 @@ hs_err_pid*
 /target/*.jar
 /target/test*
 /target/sure*
-/target/site/jacoco/com*
-/target/site/jacoco/jac*
